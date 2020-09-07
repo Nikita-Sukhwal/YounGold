@@ -12,8 +12,10 @@ The list of features (Priority-wise) based on which recommendations is as follow
   <li> Domain - A person from same domain will be recommended </li>
   <li> Hobbies - A person with more of the matching hobbies will be recommended. </li>
   </ol>
-If none of the condition is suitable, someone from whole set of users would still be recommended with a pop-up that all features might not match, they can further view profile to know the person better before connecting.
-![alt text](https://github.com/Nikita-Sukhwal/YounGold/blob/master/Flow-chart.jpg)
+If none of the condition is suitable, someone from whole set of users would still be recommended with a pop-up that all features might not match, they can further view profile to know the person better before connecting.<br></br>
+<p>
+    <img src="/Flow-chart.jpg"  />
+</p>
 
 ## Setup
 #### 1. Clone this repo
