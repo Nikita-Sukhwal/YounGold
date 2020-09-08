@@ -30,9 +30,19 @@ $ pip install -r requirements.txt
 ```
 #### 3. Run the script
 ```
-$ python recommender.py
+$ python app.py
 ```
-You can either go to recommender through main page of webapp or simply you can open - 127.0.0.1:5000/ in your browser.
+You can either go to recommender through Webapp  - https://youngold-app.herokuapp.com/ <br></br>
+You can try deployed Recommender through - https://youngold.herokuapp.com/ <br></br>
+While trying on Local Host simply you can open - 127.0.0.1:5000/ in your browser. <br></br>
+<br></br>
+<p>
+  <img src = "/Screenshot (103).png"  />
+</p>
+<br></br>
+<p>
+  <img src = "/Screenshot (105).png"   />
+</p>
 
 
 
