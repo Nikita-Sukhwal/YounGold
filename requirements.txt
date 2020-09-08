@@ -12,3 +12,4 @@ keras.preprocessing
 werkzeug
 gevent
 pymongo
+dnspython
