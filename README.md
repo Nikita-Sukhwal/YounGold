@@ -21,8 +21,7 @@ If none of the condition is suitable, someone from whole set of users would stil
 #### 1. Clone this repo
 ```
 $ git clone (https://github.com/Nikita-Sukhwal/YounGold.git)
-$ cd Recommender
-$ cd recommender.py
+$ cd YounGold
 ```
 
 #### 2. Install requirements i.e. Python Packages
