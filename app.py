@@ -26,10 +26,10 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = FOLDER
 
 
-print('Model loaded. Check http://127.0.0.1:5000/')
+#print('Model loaded. Check http://127.0.0.1:5000/')
 
 
-def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
+def model_predict(Domain,Age,Purpose, Hobbies):
         client = pymongo.MongoClient("mongodb+srv://Nikita:Nikita@cluster0.agywt.mongodb.net/YounGold?retryWrites=true&w=majority")
 
         db = client["test"]
@@ -38,11 +38,7 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
         list_cur = list(cursor)
         
         # Converting to the DataFrame 
-        df1 = DataFrame(list_cur) 
-        print('Type of df:',type(df1))
-        print(df1.head())
-        #print((df1.iloc[:1].get('_id')).astype("string")[0])
-        print("Typeeeeeeeeeeeee",type(df1.iloc[:1].get('_id')))
+        df1 = DataFrame(list_cur)
        
         print(Domain,Age,Purpose, Hobbies)
         text = ""
@@ -63,20 +59,17 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
 
                 if(len(k)==0):
                     k = df[df['purpose'] == "Both"]
-                return k
             
             elif(Purpose == "Help"):
                 k = df[df['purpose'] == "Get Help"]
                 if(len(k)==0):
                     k = df[df['purpose'] == "Both"]
-                return k
                  
             elif(Purpose == "Both"):
                 k = df[df['purpose'] == "Both"]
                 
                 if(len(k)==0):
                     k = df[df['purpose'] == "Help"]
-                return k
             
         ######GROUPING BASED ON AGE
         
@@ -113,7 +106,6 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
         Hobb = Hobb.drop('purpose',axis=1)
 
         Hobb['Score'] = 0
-        print(list(Hobb.columns))
         for i in range(len(Hobb)):
             for j in Hobbies:
                 if j in Hobb.hobbies[i]:
@@ -164,7 +156,6 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
                 Result[str(count+1)]="Name - "+dfres1.iloc[:1].name.values[0]+"\n"+"Email - " + dfres1.iloc[:1].email.values[0]+"\n"+"Age - " + str(dfres1.iloc[:1].age.values[0])+"\n"                
                 trying = dfres1.iloc[:1].get('_id').to_frame()
                 ndex = trying.loc[trying.index[0], '_id']
-                print(count,ndex)#["_id"][0])
                 Result[str(count+4)] =ndex
                 
                 dfres1 = dfres1.drop(dfres1.index[0])
@@ -179,9 +170,6 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
                 Result[str(count+1)]="Name - "+dfres2.iloc[:1].name.values[0]+"\n"+ "Email - " +dfres2.iloc[:1].email.values[0]+"\n"+ str(dfres2.iloc[:1].age.values[0])+"\n"
                 trying = dfres2.iloc[:1].get('_id').to_frame()
                 ndex = trying.loc[trying.index[0], '_id']
-                #print(trying["_id"][ndex])
-                print(count,ndex)
-                #["_id"][0])
                 Result[str(count+4)] =ndex
                 dfres2 = dfres2.drop(dfres2.index[0])
                 count+=1
@@ -195,9 +183,6 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
                 Result[str(count+1)]="Name - "+dfres3.iloc[:1].name.values[0]+"\n"+ "Email - " + dfres3.iloc[:1].email.values[0]+"\n"+ str(dfres3.iloc[:1].age.values[0])+"\n"
                 trying = dfres3.iloc[:1].get('_id').to_frame()
                 ndex = trying.loc[trying.index[0], '_id']
-                #print(trying["_id"][ndex])
-                print(count, ndex)
-                #["_id"][0])
                 Result[str(count+4)] =ndex
                 dfres3= dfres3.drop(dfres3.index[0])
                 count+=1
@@ -211,30 +196,18 @@ def model_predict(Domain,Age,Purpose, Hobbies):#, classifier):
                 Result[str(count+1)]= "Name - "+dfres4.iloc[:1].name.values[0]+"\n"+ "Email - " + dfres4.iloc[:1].email.values[0]+"\n"+ str(dfres4.iloc[:1].age.values[0])+"\n"                
                 trying = dfres4.iloc[:1].get('_id').to_frame()
                 ndex = trying.loc[trying.index[0], '_id']
-                print(count,ndex)#["_id"][0])
                 Result[str(count+4)] = ndex  
                 dfres4 = dfres4.drop(dfres4.index[0])
                 count+=1
                 
             else:
-                #if(len(k)>0):
-                #        dfres1 = k
-                #elif(len(df)>0):
-                 #       dfres1 = df
-                #else:
                 Result[str(count+1)]= "Name - "+df.iloc[:1].name.values[0]+"\n"+ "Email - " + df.iloc[:1].email.values[0]+"\n"+ str(df.iloc[:1].age.values[0])+"\n"
 
                 trying = df.iloc[:1].get('_id').to_frame()
                 ndex = trying.loc[trying.index[0], '_id']
-                #print(trying["_id"][ndex])
-                print(count,ndex)
-                #["_id"][0])
+                
                 Result[str(count+4)] = ndex   
                 df = df.drop(df.index[0])
-                
-                #print("Recommendation Exhausted")
-                #text += "\nRecommendation Exhausted"
-                #Result[str(count+1)]="Recommendation Exhausted"
                 count+=1
         return Result
 
