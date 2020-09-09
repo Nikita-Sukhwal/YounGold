@@ -1,7 +1,7 @@
 # YounGold - Recommender - GHCI 2020 Codeathon
 A connecting platform for all AGE GROUPS who are facing mental health issues due to various reasons and are lonely in this pandemic.
 
-The main purpose is to help youngsters take help from experienced ones belonging from same domain. There can be youngsters who would simply like to network with the older ones and old people might face loneliness and may want to share their experiences and in this case this application can be helpful to everyone.
+In Post Covid life people will be facing mental health issues due to self-isolation,financial crisis, career uncertainty social- distancing, fear, anxiety, etc. There are many people who are struggling and  wish to share their problems with the people who have faced similar problems and are experienced in their field of interest to seek for guidance and career paths. Also,There are many elderly retired professionals who are facing loneliness in this Pandemic and who have ample time and wish to guide young people in their spare time.
 
 The list of features (Priority-wise) based on which recommendations is as follows:
 <ol>
