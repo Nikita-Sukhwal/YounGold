@@ -109,13 +109,13 @@ $(document).ready(function () {
                 var id2 = data["5"];
                 var id3 = data["6"]
                 $('#Profile1').click(function () {
-                window.location="https://youngold-app.herokuapp.com/profiles/"+id1;
+                window.location="https://youngold-app.herokuapp.com/profile/"+id1;
             });
                 $('#Profile2').click(function () {
-                window.location="https://youngold-app.herokuapp.com/profiles/"+id2;
+                window.location="https://youngold-app.herokuapp.com/profile/"+id2;
             });
                 $('#Profile3').click(function () {
-                window.location="https://youngold-app.herokuapp.com/profiles/"+id3;
+                window.location="https://youngold-app.herokuapp.com/profile/"+id3;
             });
 
             },
